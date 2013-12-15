@@ -1,0 +1,364 @@
+Created by PLY version 3.4 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> node
+Rule 1     node -> group nextnode
+Rule 2     nextnode -> optbond node
+Rule 3     nextnode -> <empty>
+Rule 4     optbond -> DOUBLE_BOND
+Rule 5     optbond -> TRIPLE_BOND
+Rule 6     optbond -> <empty>
+Rule 7     group -> symbol
+Rule 8     group -> symbol extention
+Rule 9     symbol -> ATOM
+Rule 10    symbol -> AROMATIC_CARBON
+Rule 11    extention -> extention extention
+Rule 12    extention -> LPAREN nextnode RPAREN
+Rule 13    extention -> HALOGEN optnum
+Rule 14    extention -> HYDROGEN optnum
+Rule 15    optnum -> NUMBER
+Rule 16    optnum -> <empty>
+
+Terminals, with rules where they appear
+
+AROMATIC_CARBON      : 10
+ATOM                 : 9
+DOUBLE_BOND          : 4
+HALOGEN              : 13
+HYDROGEN             : 14
+LPAREN               : 12
+NUMBER               : 15
+RPAREN               : 12
+TRIPLE_BOND          : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+extention            : 8 11 11
+group                : 1
+nextnode             : 1 12
+node                 : 2 0
+optbond              : 2
+optnum               : 13 14
+symbol               : 7 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . node
+    (1) node -> . group nextnode
+    (7) group -> . symbol
+    (8) group -> . symbol extention
+    (9) symbol -> . ATOM
+    (10) symbol -> . AROMATIC_CARBON
+
+    ATOM            shift and go to state 5
+    AROMATIC_CARBON shift and go to state 3
+
+    node                           shift and go to state 1
+    symbol                         shift and go to state 4
+    group                          shift and go to state 2
+
+state 1
+
+    (0) S' -> node .
+
+
+
+state 2
+
+    (1) node -> group . nextnode
+    (2) nextnode -> . optbond node
+    (3) nextnode -> .
+    (4) optbond -> . DOUBLE_BOND
+    (5) optbond -> . TRIPLE_BOND
+    (6) optbond -> .
+
+    $end            reduce using rule 3 (nextnode -> .)
+    RPAREN          reduce using rule 3 (nextnode -> .)
+    DOUBLE_BOND     shift and go to state 6
+    TRIPLE_BOND     shift and go to state 9
+    ATOM            reduce using rule 6 (optbond -> .)
+    AROMATIC_CARBON reduce using rule 6 (optbond -> .)
+
+    nextnode                       shift and go to state 7
+    optbond                        shift and go to state 8
+
+state 3
+
+    (10) symbol -> AROMATIC_CARBON .
+
+    LPAREN          reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    HALOGEN         reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    HYDROGEN        reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    DOUBLE_BOND     reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    TRIPLE_BOND     reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    ATOM            reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    AROMATIC_CARBON reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    $end            reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+    RPAREN          reduce using rule 10 (symbol -> AROMATIC_CARBON .)
+
+
+state 4
+
+    (7) group -> symbol .
+    (8) group -> symbol . extention
+    (11) extention -> . extention extention
+    (12) extention -> . LPAREN nextnode RPAREN
+    (13) extention -> . HALOGEN optnum
+    (14) extention -> . HYDROGEN optnum
+
+    DOUBLE_BOND     reduce using rule 7 (group -> symbol .)
+    TRIPLE_BOND     reduce using rule 7 (group -> symbol .)
+    ATOM            reduce using rule 7 (group -> symbol .)
+    AROMATIC_CARBON reduce using rule 7 (group -> symbol .)
+    $end            reduce using rule 7 (group -> symbol .)
+    RPAREN          reduce using rule 7 (group -> symbol .)
+    LPAREN          shift and go to state 12
+    HALOGEN         shift and go to state 11
+    HYDROGEN        shift and go to state 13
+
+    extention                      shift and go to state 10
+
+state 5
+
+    (9) symbol -> ATOM .
+
+    LPAREN          reduce using rule 9 (symbol -> ATOM .)
+    HALOGEN         reduce using rule 9 (symbol -> ATOM .)
+    HYDROGEN        reduce using rule 9 (symbol -> ATOM .)
+    DOUBLE_BOND     reduce using rule 9 (symbol -> ATOM .)
+    TRIPLE_BOND     reduce using rule 9 (symbol -> ATOM .)
+    ATOM            reduce using rule 9 (symbol -> ATOM .)
+    AROMATIC_CARBON reduce using rule 9 (symbol -> ATOM .)
+    $end            reduce using rule 9 (symbol -> ATOM .)
+    RPAREN          reduce using rule 9 (symbol -> ATOM .)
+
+
+state 6
+
+    (4) optbond -> DOUBLE_BOND .
+
+    ATOM            reduce using rule 4 (optbond -> DOUBLE_BOND .)
+    AROMATIC_CARBON reduce using rule 4 (optbond -> DOUBLE_BOND .)
+
+
+state 7
+
+    (1) node -> group nextnode .
+
+    $end            reduce using rule 1 (node -> group nextnode .)
+    RPAREN          reduce using rule 1 (node -> group nextnode .)
+
+
+state 8
+
+    (2) nextnode -> optbond . node
+    (1) node -> . group nextnode
+    (7) group -> . symbol
+    (8) group -> . symbol extention
+    (9) symbol -> . ATOM
+    (10) symbol -> . AROMATIC_CARBON
+
+    ATOM            shift and go to state 5
+    AROMATIC_CARBON shift and go to state 3
+
+    node                           shift and go to state 14
+    group                          shift and go to state 2
+    symbol                         shift and go to state 4
+
+state 9
+
+    (5) optbond -> TRIPLE_BOND .
+
+    ATOM            reduce using rule 5 (optbond -> TRIPLE_BOND .)
+    AROMATIC_CARBON reduce using rule 5 (optbond -> TRIPLE_BOND .)
+
+
+state 10
+
+    (8) group -> symbol extention .
+    (11) extention -> extention . extention
+    (11) extention -> . extention extention
+    (12) extention -> . LPAREN nextnode RPAREN
+    (13) extention -> . HALOGEN optnum
+    (14) extention -> . HYDROGEN optnum
+
+    DOUBLE_BOND     reduce using rule 8 (group -> symbol extention .)
+    TRIPLE_BOND     reduce using rule 8 (group -> symbol extention .)
+    ATOM            reduce using rule 8 (group -> symbol extention .)
+    AROMATIC_CARBON reduce using rule 8 (group -> symbol extention .)
+    $end            reduce using rule 8 (group -> symbol extention .)
+    RPAREN          reduce using rule 8 (group -> symbol extention .)
+    LPAREN          shift and go to state 12
+    HALOGEN         shift and go to state 11
+    HYDROGEN        shift and go to state 13
+
+    extention                      shift and go to state 15
+
+state 11
+
+    (13) extention -> HALOGEN . optnum
+    (15) optnum -> . NUMBER
+    (16) optnum -> .
+
+    NUMBER          shift and go to state 16
+    LPAREN          reduce using rule 16 (optnum -> .)
+    HALOGEN         reduce using rule 16 (optnum -> .)
+    HYDROGEN        reduce using rule 16 (optnum -> .)
+    DOUBLE_BOND     reduce using rule 16 (optnum -> .)
+    TRIPLE_BOND     reduce using rule 16 (optnum -> .)
+    ATOM            reduce using rule 16 (optnum -> .)
+    AROMATIC_CARBON reduce using rule 16 (optnum -> .)
+    $end            reduce using rule 16 (optnum -> .)
+    RPAREN          reduce using rule 16 (optnum -> .)
+
+    optnum                         shift and go to state 17
+
+state 12
+
+    (12) extention -> LPAREN . nextnode RPAREN
+    (2) nextnode -> . optbond node
+    (3) nextnode -> .
+    (4) optbond -> . DOUBLE_BOND
+    (5) optbond -> . TRIPLE_BOND
+    (6) optbond -> .
+
+    RPAREN          reduce using rule 3 (nextnode -> .)
+    DOUBLE_BOND     shift and go to state 6
+    TRIPLE_BOND     shift and go to state 9
+    ATOM            reduce using rule 6 (optbond -> .)
+    AROMATIC_CARBON reduce using rule 6 (optbond -> .)
+
+    nextnode                       shift and go to state 18
+    optbond                        shift and go to state 8
+
+state 13
+
+    (14) extention -> HYDROGEN . optnum
+    (15) optnum -> . NUMBER
+    (16) optnum -> .
+
+    NUMBER          shift and go to state 16
+    LPAREN          reduce using rule 16 (optnum -> .)
+    HALOGEN         reduce using rule 16 (optnum -> .)
+    HYDROGEN        reduce using rule 16 (optnum -> .)
+    DOUBLE_BOND     reduce using rule 16 (optnum -> .)
+    TRIPLE_BOND     reduce using rule 16 (optnum -> .)
+    ATOM            reduce using rule 16 (optnum -> .)
+    AROMATIC_CARBON reduce using rule 16 (optnum -> .)
+    $end            reduce using rule 16 (optnum -> .)
+    RPAREN          reduce using rule 16 (optnum -> .)
+
+    optnum                         shift and go to state 19
+
+state 14
+
+    (2) nextnode -> optbond node .
+
+    $end            reduce using rule 2 (nextnode -> optbond node .)
+    RPAREN          reduce using rule 2 (nextnode -> optbond node .)
+
+
+state 15
+
+    (11) extention -> extention extention .
+    (11) extention -> extention . extention
+    (11) extention -> . extention extention
+    (12) extention -> . LPAREN nextnode RPAREN
+    (13) extention -> . HALOGEN optnum
+    (14) extention -> . HYDROGEN optnum
+
+  ! shift/reduce conflict for LPAREN resolved as shift
+  ! shift/reduce conflict for HALOGEN resolved as shift
+  ! shift/reduce conflict for HYDROGEN resolved as shift
+    DOUBLE_BOND     reduce using rule 11 (extention -> extention extention .)
+    TRIPLE_BOND     reduce using rule 11 (extention -> extention extention .)
+    ATOM            reduce using rule 11 (extention -> extention extention .)
+    AROMATIC_CARBON reduce using rule 11 (extention -> extention extention .)
+    $end            reduce using rule 11 (extention -> extention extention .)
+    RPAREN          reduce using rule 11 (extention -> extention extention .)
+    LPAREN          shift and go to state 12
+    HALOGEN         shift and go to state 11
+    HYDROGEN        shift and go to state 13
+
+  ! LPAREN          [ reduce using rule 11 (extention -> extention extention .) ]
+  ! HALOGEN         [ reduce using rule 11 (extention -> extention extention .) ]
+  ! HYDROGEN        [ reduce using rule 11 (extention -> extention extention .) ]
+
+    extention                      shift and go to state 15
+
+state 16
+
+    (15) optnum -> NUMBER .
+
+    LPAREN          reduce using rule 15 (optnum -> NUMBER .)
+    HALOGEN         reduce using rule 15 (optnum -> NUMBER .)
+    HYDROGEN        reduce using rule 15 (optnum -> NUMBER .)
+    DOUBLE_BOND     reduce using rule 15 (optnum -> NUMBER .)
+    TRIPLE_BOND     reduce using rule 15 (optnum -> NUMBER .)
+    ATOM            reduce using rule 15 (optnum -> NUMBER .)
+    AROMATIC_CARBON reduce using rule 15 (optnum -> NUMBER .)
+    $end            reduce using rule 15 (optnum -> NUMBER .)
+    RPAREN          reduce using rule 15 (optnum -> NUMBER .)
+
+
+state 17
+
+    (13) extention -> HALOGEN optnum .
+
+    LPAREN          reduce using rule 13 (extention -> HALOGEN optnum .)
+    HALOGEN         reduce using rule 13 (extention -> HALOGEN optnum .)
+    HYDROGEN        reduce using rule 13 (extention -> HALOGEN optnum .)
+    DOUBLE_BOND     reduce using rule 13 (extention -> HALOGEN optnum .)
+    TRIPLE_BOND     reduce using rule 13 (extention -> HALOGEN optnum .)
+    ATOM            reduce using rule 13 (extention -> HALOGEN optnum .)
+    AROMATIC_CARBON reduce using rule 13 (extention -> HALOGEN optnum .)
+    $end            reduce using rule 13 (extention -> HALOGEN optnum .)
+    RPAREN          reduce using rule 13 (extention -> HALOGEN optnum .)
+
+
+state 18
+
+    (12) extention -> LPAREN nextnode . RPAREN
+
+    RPAREN          shift and go to state 20
+
+
+state 19
+
+    (14) extention -> HYDROGEN optnum .
+
+    LPAREN          reduce using rule 14 (extention -> HYDROGEN optnum .)
+    HALOGEN         reduce using rule 14 (extention -> HYDROGEN optnum .)
+    HYDROGEN        reduce using rule 14 (extention -> HYDROGEN optnum .)
+    DOUBLE_BOND     reduce using rule 14 (extention -> HYDROGEN optnum .)
+    TRIPLE_BOND     reduce using rule 14 (extention -> HYDROGEN optnum .)
+    ATOM            reduce using rule 14 (extention -> HYDROGEN optnum .)
+    AROMATIC_CARBON reduce using rule 14 (extention -> HYDROGEN optnum .)
+    $end            reduce using rule 14 (extention -> HYDROGEN optnum .)
+    RPAREN          reduce using rule 14 (extention -> HYDROGEN optnum .)
+
+
+state 20
+
+    (12) extention -> LPAREN nextnode RPAREN .
+
+    LPAREN          reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    HALOGEN         reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    HYDROGEN        reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    DOUBLE_BOND     reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    TRIPLE_BOND     reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    ATOM            reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    AROMATIC_CARBON reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    $end            reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+    RPAREN          reduce using rule 12 (extention -> LPAREN nextnode RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for LPAREN in state 15 resolved as shift
+WARNING: shift/reduce conflict for HALOGEN in state 15 resolved as shift
+WARNING: shift/reduce conflict for HYDROGEN in state 15 resolved as shift
