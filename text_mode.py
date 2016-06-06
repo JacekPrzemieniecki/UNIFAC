@@ -42,7 +42,7 @@ class UI(object):
         if command == "ADD":
             self.facade.add_molecule_smiles(parameters[0], float(parameters[1]))
         elif command == "REMOVE":
-            self.facade.add_molecule(parameters[0], float(-parameters[1]))
+            self.facade.add_molecule_smiles(parameters[0], float(-parameters[1]))
         elif command == "PRINT":
             self.print_result(parameters[0])
         elif command == "RESET":
