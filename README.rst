@@ -3,13 +3,13 @@ Usage
 Run text_mode.py
 
 Available commands:
+
 ADD <smiles> <quantity>
   <smiles> - SMILES notation of compound added
   <quantity> - amount (in moles) of compound
+  
 REMOVE <smiles> <quantity>
-
   <smiles> - SMILES notation of compound removed
-
   <quantity> - amount (in moles) of compound
 
 PRINT <smiles>
@@ -21,13 +21,14 @@ RESET
 
 Example
 -------
-For equimolar mixture of water and pentanamine do:
-ADD CCCCCN 1
-ADD O 1
-PRINT CCCCCN
-> Activity coefficient for:  CCCCCN   1.0009635890593225
-PRINT O
-> Activity coefficient for:  O   1.4522017025416403
+For equimolar mixture of water and pentanamine do::
+
+  ADD CCCCCN 1
+  ADD O 1
+  PRINT CCCCCN
+  > Activity coefficient for:  CCCCCN   1.0009635890593225
+  PRINT O
+  > Activity coefficient for:  O   1.4522017025416403
 
 API
 -------
@@ -48,7 +49,9 @@ facade.reset_solution()
 
 Example
 -------
-from unifac.facade import Facade
+::
+
+  from unifac.facade import Facade
 
     f = Facade()
     print(f.__dict__)
