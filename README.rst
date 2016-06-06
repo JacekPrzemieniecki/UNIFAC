@@ -32,19 +32,19 @@ For equimolar mixture of water and pentanamine do::
 
 API
 -------
-Text mode commands map directly to the methods of unifac.facade.
+Text mode commands map directly to the methods of unifac.Facade.
 
-facade.add_molecule_smiles(smiles, quantity)
+Facade.add_molecule_smiles(smiles, quantity)
   Adds the specified amount od compound into the mixture.
   Use negative quantities to remove.
 
-facade.getcoeff(smiles)
+Facade.getcoeff(smiles)
   Returns the activity coefficient of the compound in current mixture.
 
-facade.set_temperature(temp)
+Facade.set_temperature(temp)
   Sets the temperature of current mixture
 
-facade.reset_solution()
+Facade.reset_solution()
   Resets the mixture to empty state, and the temperature to 273K
 
 Example
