@@ -29,5 +29,5 @@ class Molecule(object):
         if not self.finalized:
             self.groups = molecule_splitter.split(self)
             self.finalized = True
-        
+
         return self.groups

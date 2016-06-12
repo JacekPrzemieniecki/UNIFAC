@@ -44,7 +44,7 @@ class MolBuilder(object):
         """
         returns first atom of a chain
         """
-        
+
         if node[0] == "branched":
             first_atom = self._build_atom(node[1])
             
@@ -59,7 +59,7 @@ class MolBuilder(object):
             return first_atom
         
         elif node[0] == "bond":
-            self.bond_next = node[1][1]
+            self.bond_next = node[1]
         
         else:
             raise Exception()   # TODO: Exception Handling
