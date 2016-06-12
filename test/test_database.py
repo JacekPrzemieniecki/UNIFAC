@@ -5,8 +5,8 @@ Created on 10-10-2012
 '''
 import unittest
 
-from Unifac.unifac import database
-from Unifac.unifac import errors
+from unifac import database
+from unifac import errors
 
 class DatabaseTest(unittest.TestCase):
 

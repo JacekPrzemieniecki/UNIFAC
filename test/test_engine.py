@@ -1,6 +1,6 @@
 import unittest
 
-from Unifac.unifac import engine #@UnresolvedImport
+from unifac import engine #@UnresolvedImport
 
 class stub_mol(object):
     def __init__(self, groups):

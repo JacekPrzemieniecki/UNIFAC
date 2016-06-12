@@ -6,11 +6,11 @@ Created on 12-10-2012
 import unittest
 import itertools
 
-from Unifac.unifac import database
-from Unifac.unifac.mol_splitter import group_parser
-from Unifac.unifac.mol_splitter import molecule_splitter
+from unifac import database
+from unifac.mol_splitter import group_parser
+from unifac.mol_splitter import molecule_splitter
 
-from Unifac.unifac.atom import Atom
+from unifac.atom import Atom
 
 class stub_mol(object):
     

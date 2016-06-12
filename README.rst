@@ -7,11 +7,6 @@ Available commands:
 ADD <smiles> <quantity>
   <smiles> - SMILES notation of compound added
   <quantity> - amount (in moles) of compound
-  
-REMOVE <smiles> <quantity>
-  <smiles> - SMILES notation of compound removed
-  <quantity> - amount (in moles) of compound
-
 PRINT <smiles>
   prints activity coefficient of <smiles>
 TEMPERATURE <temp>

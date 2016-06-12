@@ -5,9 +5,9 @@ Created on 13-10-2012
 '''
 import unittest
 
-from Unifac.unifac.molecule import Molecule
-from Unifac.unifac.smiles_parser import parser
-from Unifac.unifac.smiles_parser.mol_builder import MolBuilder
+from unifac.molecule import Molecule
+from unifac.smiles_parser import parser
+from unifac.smiles_parser.mol_builder import MolBuilder
 
 class ParserTest(unittest.TestCase):
     

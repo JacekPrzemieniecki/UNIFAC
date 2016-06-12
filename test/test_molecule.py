@@ -5,9 +5,9 @@ Created on 11-10-2012
 '''
 import unittest
 
-from Unifac.unifac import molecule
+from unifac import molecule
 
-from Unifac.unifac.atom import Atom
+from unifac.atom import Atom
 
 
 class MoleculeTest(unittest.TestCase):

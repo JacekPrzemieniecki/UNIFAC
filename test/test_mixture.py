@@ -5,7 +5,7 @@ Created on 16-10-2012
 '''
 import unittest
 
-from Unifac.unifac.mixture import Mixture
+from unifac.mixture import Mixture
 
 class stub_mol(object):
     def __init__(self, groups):

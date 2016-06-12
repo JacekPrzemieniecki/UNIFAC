@@ -5,7 +5,7 @@ Created on 11-10-2012
 '''
 import unittest
 
-from Unifac.unifac import atom
+from unifac import atom
 
 class AtomTest(unittest.TestCase):
 
