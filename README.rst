@@ -58,7 +58,9 @@ Example
     print("Water activity coefficient: ")
     print(f.get_coeff("O"))
 
-
+Known Issues
+-------
+There is no support for aromatic compounds, supplying a SMILES string with aromatic rings in it will result in a parsing error.
 
 Credits
 -------
